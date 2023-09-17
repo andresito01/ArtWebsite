@@ -1,0 +1,102 @@
+/* Admin Login */
+.admin-login {
+  font-family: "Cormorant Upright", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(
+    100vh - 13.2rem
+  ); /* Calculate the height to fit below the header */
+  margin-top: 7rem;
+  margin-bottom: 1rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .admin-login {
+  color: #fff;
+  background-color: #333; /* Light gray background color */
+}
+
+.light-theme .admin-login {
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.admin-login h2 {
+  font-size: 2rem;
+}
+
+.dark-theme .admin-login h2 {
+  color: #fff;
+}
+
+.light-theme .admin-login h2 {
+  color: #333;
+}
+
+.admin-login form {
+  width: 50%;
+}
+
+label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #0078d4;
+}
+
+.login-button {
+  font-family: "Cormorant Upright", serif;
+  margin-top: 1rem;
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #005fb0;
+}
+
+@media (max-width: 700px) {
+  .admin-login form {
+    width: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  .admin-login {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-login form {
+    width: 90%;
+  }
+}

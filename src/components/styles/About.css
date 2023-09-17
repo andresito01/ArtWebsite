@@ -1,0 +1,114 @@
+/* About Section */
+
+.about {
+  margin-bottom: 0.5rem;
+  padding: 20px;
+  border-radius: 5px;
+  font-family: "Cormorant Upright", serif;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionally, add a shadow */
+}
+
+.light-theme .about {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dark-theme .about {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  /* Add spacing and alignment styles here */
+}
+
+.about-image {
+  flex: 0 0 35%; /* Adjust the width of the image */
+  padding: 10px; /* Add padding to the image container */
+  max-height: 50vh; /* Limit the maximum height */
+  display: flex; /* Enable flex layout for the image container */
+  align-items: center; /* Center vertically within the container */
+  justify-content: center; /* Center horizontally within the container */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.about-image img {
+  max-width: 100%; /* Ensure the image adjusts to the container's width */
+  max-height: 100%; /* Ensure the image adjusts to the container's height */
+  height: auto; /* Allow the image to scale proportionally */
+  width: auto; /* Allow the image to scale proportionally */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.about-image-admin {
+  flex: 0 0 30%; /* Adjust the width of the image */
+  padding: 10px; /* Add padding to the image container */
+  max-height: 50vh; /* Limit the maximum height */
+  display: flex; /* Enable flex layout for the image container */
+  align-items: center; /* Center vertically within the container */
+  justify-content: center; /* Center horizontally within the container */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.about-image-admin img {
+  max-width: 100%; /* Ensure the image adjusts to the container's width */
+  max-height: 100%; /* Ensure the image adjusts to the container's height */
+  height: auto; /* Allow the image to scale proportionally */
+  width: auto; /* Allow the image to scale proportionally */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.about-paragraph {
+  flex: 0 0 50%; /* Adjust the width of the paragraph */
+}
+
+.about-paragraph p {
+  font-size: 16px; /* Adjust the font size */
+  line-height: 1.5; /* Improve text readability */
+}
+
+/* Instagram Link */
+
+.instagram-link {
+  margin-top: 40px; /* Adjust spacing as needed */
+  display: inline-block;
+  transition: transform 0.3s ease; /* Add scaling transition */
+}
+
+.instagram-link:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* Stack elements on small screens */
+    text-align: center; /* Center text on small screens */
+    margin-top: 20px; /* Add margin to the top of the content */
+  }
+
+  .about-paragraph {
+    margin-top: 20px; /* Add margin to paragraphs */
+  }
+
+  .about-image {
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about-image-admin img {
+    max-width: 40%; /* Ensure the image adjusts to the container's width */
+  }
+}

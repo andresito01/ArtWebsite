@@ -1,0 +1,86 @@
+.App {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.content-wrap {
+  flex-grow: 1; /* Allow content to grow and push the footer to the bottom */
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Light Theme */
+.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Header Section */
+.header {
+  height: 6rem;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: 0;
+  right: 0; /* Optionally, stretch the header across the entire viewport */
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionally, add a shadow */
+}
+
+.dark-theme .header {
+  background-color: #000;
+}
+
+.light-theme .header {
+  background-color: #fff;
+}
+
+.headerTitle {
+  margin-top: 3%;
+  margin-left: 10%;
+  font-size: 3rem;
+  font-family: "Cormorant Upright", serif;
+}
+
+/* Responsive Styles */
+@media (max-width: 500px) {
+  .headerTitle {
+    font-size: 2.5rem;
+    margin-left: 4%;
+  }
+  .dark-light-switch {
+    font-size: 20px;
+  }
+}
+
+/* Customize scrollbar for webkit (Chrome, Safari, Edge) */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lightgrey;
+}

@@ -1,0 +1,104 @@
+/* Admin Dashboard */
+
+.admin-dashboard {
+  font-family: "Cormorant Upright", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(
+    100vh - 11rem
+  ); /* Calculate the height to fit below the header */
+  margin-top: 6rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+.admin-dashboard h2 {
+  padding-top: 1rem;
+  font-size: 2rem;
+}
+
+#admin-dashboard-header {
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionally, add a shadow */
+}
+
+.uploadImageContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.success-indicator {
+  font-size: 1rem;
+}
+
+/* Image File Admin Delete Button */
+
+.delete-button-admin {
+  display: flex;
+  padding: 2px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background-color: transparent; /* Add background color to ensure visibility */
+  border-radius: 30%; /* Make it circular */
+}
+
+.delete-button-admin:hover {
+  transform: scale(0.9);
+}
+
+/* Pseudo-element for the background overlay with animation */
+.delete-button-admin::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0); /* Transparent red */
+  transition: background-color 0.3s ease; /* Animation duration and easing */
+  z-index: -1; /* Place it behind the button */
+}
+
+/* Add the animation effect when hovering over the delete button */
+.delete-button-admin:hover::before {
+  background-color: rgba(
+    255,
+    0,
+    0,
+    0.3
+  ); /* Lighter and transparent red on hover */
+}
+
+/* Admin About Paragraph Entry Container */
+.about-paragraph-entry-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.about-paragraph-entry-container textarea {
+  font-size: 1rem; /* Adjust the font size */
+  line-height: 1.5; /* Improve text readability */
+  resize: none; /* Disable textarea resizing by the user */
+  overflow-y: scroll;
+  min-height: 200px; /* Set a minimum height to prevent collapsing */
+  padding: 5px;
+}
+
+.about-paragraph-entry-container button {
+  align-self: center;
+  padding: 5px;
+}
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .about-paragraph {
+    width: 100%;
+  }
+}
