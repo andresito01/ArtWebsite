@@ -29,6 +29,16 @@ jobs:
       - name: Install Firebase CLI
         run: yarn global add firebase-tools@latest
 
+      - name: Debug Firebase Service Account Key
+        run: |
+          echo "FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE: $FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE"
+        env:
+          FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE }}
+
+      - name: Debug Firebase Project ID
+        run: |
+          echo "Firebase Project ID: daliasartwebsite"
+
       - name: Authenticate with Firebase
         run: |
           echo "$FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE" > $HOME/firebase-service-account.json
