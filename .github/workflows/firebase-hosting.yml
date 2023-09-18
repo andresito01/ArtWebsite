@@ -9,7 +9,11 @@ on:
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    - name: Debug Pull Request Info
+    run: |
+      echo "github.event.pull_request.head.repo.full_name: ${{ github.event.pull_request.head.repo.full_name }}"
+      echo "github.repository: ${{ github.repository }}"
+    if: always()
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
