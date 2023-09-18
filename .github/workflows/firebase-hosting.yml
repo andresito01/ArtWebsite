@@ -42,7 +42,7 @@ jobs:
       - name: Authenticate with Firebase
         run: |
           echo "$FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE" > $HOME/firebase-service-account.json
-          firebase use --add daliasartwebsite --token "$FIREBASE_TOKEN" --json $HOME/firebase-service-account.json
+          yarn firebase use --add daliasartwebsite --token "$FIREBASE_TOKEN" --json $HOME/firebase-service-account.json
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE }}
@@ -51,7 +51,7 @@ jobs:
         run: |
           yarn install
           yarn build
-          firebase deploy --only hosting
+          yarn firebase deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           REACT_APP_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
