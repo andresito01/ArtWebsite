@@ -3,29 +3,41 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import axios from "axios";
 //import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+// Function to fetch firebaseConfig from backend
+const fetchFirebaseConfig = async () => {
+  try {
+    const response = await axios.get("http://localhost:5000/");
+    return response.data;
+  } catch (error) {
+    console.log("Error fetching firebaseConfig:", error);
+  }
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
+// Fetch and intialize Firebase configuration
+const initializeFirebase = async () => {
+  try {
+    const firebaseConfig = await fetchFirebaseConfig();
+    console.log(firebaseConfig);
+    // Initialize Firebase App
+    const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
+    // Return the initialized Firebase app
+    return app;
+  } catch (error) {
+    console.log("Error initializing Firebase App:", error);
+  }
+};
+
+const firebaseApp = await initializeFirebase();
+
+// Initializing auth, db, and storage using initialized Firebase App
+const auth = getAuth(firebaseApp);
+const db = getFirestore(firebaseApp);
+const storage = getStorage(firebaseApp);
 
 export { auth, db, storage };
