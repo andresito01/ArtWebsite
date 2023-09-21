@@ -22,7 +22,7 @@ const fetchFirebaseConfig = async () => {
 const initializeFirebase = async () => {
   try {
     const firebaseConfig = await fetchFirebaseConfig();
-    console.log(firebaseConfig);
+
     // Initialize Firebase App
     const app = initializeApp(firebaseConfig);
 
