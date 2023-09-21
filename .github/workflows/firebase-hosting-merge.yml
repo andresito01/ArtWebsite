@@ -18,12 +18,13 @@ jobs:
       - name: Install Yarn
         run: npm install -g yarn
       - name: Build Yarn
-        run: 
-        yarn install
-        yarn build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE }}'
-          channelId: live
-          projectId: daliasartwebsite
+        run: |
+          yarn install
+          yarn build
+      - name: Deploy to Firebase Hosting
+          uses: FirebaseExtended/action-hosting-deploy@v0
+          with:
+            repoToken: '${{ secrets.GITHUB_TOKEN }}'
+            firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DALIASARTWEBSITE }}'
+            channelId: live
+            projectId: daliasartwebsite
