@@ -11,7 +11,7 @@ import axios from "axios";
 // Function to fetch firebaseConfig from backend
 const fetchFirebaseConfig = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/");
+    const response = await axios.get("https://localhost:5000/");
     return response.data;
   } catch (error) {
     console.log("Error fetching firebaseConfig:", error);
