@@ -33,7 +33,14 @@ app.get("/getFirebaseConfig", (req, res) => {
   }
 });
 
-exports.getFirebaseConfig = functions.https.onRequest(app);
+exports.getFirebaseConfig = functions.https.onRequest((req, res) => {
+  if (!req.path) {
+    // prepending "/" keeps query params, path params intact
+    req.url = `/${req.url}`;
+  }
+
+  return app(req, res);
+});
 
 /**
  * Import function triggers from their respective submodules:
