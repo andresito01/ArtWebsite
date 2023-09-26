@@ -1,12 +1,14 @@
 const functions = require("firebase-functions");
 require("dotenv").config();
-// const express = require("express");
-// const cors = require("cors");
-// const corsOptions = {
-//   origin: "http://localhost:3000", // Update with your frontend URL
-// };
-// const app = express();
-// app.use(cors());
+const express = require("express");
+const cors = require("cors");
+const corsOptions = {
+  origin:
+    "https://daliasartwebsite.web.app/" ||
+    "https://daliasartwebsite.firebaseapp.com/", // Update with your frontend URL
+};
+const app = express();
+app.use(cors(corsOptions));
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -18,13 +20,11 @@ const firebaseConfig = {
   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
-// app.get("/getFirebaseConfig", (req, res) => {
-//   res.json(firebaseConfig);
-// });
-
-exports.getFirebaseConfig = functions.https.onRequest((req, res) => {
+app.get("/getFirebaseConfig", (req, res) => {
   res.json(firebaseConfig);
 });
+
+exports.getFirebaseConfig = functions.https.onRequest(app);
 
 /**
  * Import function triggers from their respective submodules:
