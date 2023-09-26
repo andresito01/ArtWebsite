@@ -11,10 +11,20 @@ import axios from "axios";
 // Function to fetch firebaseConfig from backend
 const fetchFirebaseConfig = async () => {
   try {
-    const response = await axios.get(
+    const response = await fetch(
       "https://us-central1-daliasartwebsite.cloudfunctions.net/getFirebaseConfig"
     );
-    return response.data;
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+    // const response = await axios.get(
+    //   "https://us-central1-daliasartwebsite.cloudfunctions.net/getFirebaseConfig"
+    // );
+    // return response.data;
   } catch (error) {
     console.log("Error fetching firebaseConfig:", error);
     throw error;
