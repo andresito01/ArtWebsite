@@ -21,7 +21,16 @@ const firebaseConfig = {
 };
 
 app.get("/getFirebaseConfig", (req, res) => {
-  res.json(firebaseConfig);
+  try {
+    // Log incoming request
+    console.log("Received request to /getFirebaseConfig");
+
+    res.json(firebaseConfig);
+  } catch (error) {
+    // Log any errors
+    console.error("Error in /getFirebaseConfig:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 exports.getFirebaseConfig = functions.https.onRequest(app);
