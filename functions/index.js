@@ -1,0 +1,46 @@
+const functions = require("firebase-functions");
+require("dotenv").config();
+// const express = require("express");
+// const cors = require("cors");
+// const corsOptions = {
+//   origin: "http://localhost:3000", // Update with your frontend URL
+// };
+// const app = express();
+// app.use(cors());
+
+const firebaseConfig = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+};
+
+// app.get("/getFirebaseConfig", (req, res) => {
+//   res.json(firebaseConfig);
+// });
+
+exports.getFirebaseConfig = functions.https.onRequest((req, res) => {
+  res.json(firebaseConfig);
+});
+
+/**
+ * Import function triggers from their respective submodules:
+ *
+ * const {onCall} = require("firebase-functions/v2/https");
+ * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
+ *
+ * See a full list of supported triggers at https://firebase.google.com/docs/functions
+ */
+
+// const {onRequest} = require("firebase-functions/v2/https");
+// const logger = require("firebase-functions/logger");
+// Create and deploy your first functions
+// https://firebase.google.com/docs/functions/get-started
+
+// exports.helloWorld = onRequest((request, response) => {
+//   logger.info("Hello logs!", {structuredData: true});
+//   response.send("Hello from Firebase!");
+// });
