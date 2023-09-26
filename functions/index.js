@@ -2,13 +2,11 @@ const functions = require("firebase-functions");
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const corsOptions = {
-  origin:
-    "https://daliasartwebsite.web.app" ||
-    "https://daliasartwebsite.firebaseapp.com", // Update with your frontend URL
-};
 const app = express();
-app.use(cors(corsOptions));
+const admin = require("firebase-admin");
+// Initialize Firebase Admin SDK
+admin.initializeApp();
+app.use(cors({ origin: true }));
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
